@@ -3,7 +3,7 @@ import {
   deleteBook,
   fetchBooks,
   getBookById,
-   getBooksByAuthor,
+  getBooksByAuthor,
   updateBook,
 } from "../controllers/book.js";
 import Book from "../models/book.js";

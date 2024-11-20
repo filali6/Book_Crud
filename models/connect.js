@@ -16,5 +16,7 @@ connectSchema.methods.toPublic = function () {
   connectObject.name = this.name;  
   return connectObject;
 };
+connectSchema.set("toJSON", { virtuals: true });
+connectSchema.set("toObject", { virtuals: true });
 
 export default mongoose.model("Connect", connectSchema);

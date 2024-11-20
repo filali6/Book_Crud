@@ -30,7 +30,7 @@ export const getBookById = async (req, res) => {
 export const getBooksByAuthor = async (req, res) => {
   try {
     const book = await Book.findByAuthor({ _id: req.params.id }); 
-    console.log(book.title);
+    //console.log(book.title);
 
     if (book) {
       res.status(200).json({
