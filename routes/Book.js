@@ -3,7 +3,7 @@ import {
   deleteBook,
   fetchBooks,
   getBookById,
-   
+   getBooksByAuthor,
   updateBook,
 } from "../controllers/book.js";
 import Book from "../models/book.js";
@@ -15,6 +15,7 @@ const router = express.Router();
 router.get("/", fetchBooks);
 
 router.get("/:id",getBookById);
+router.get("/author/:id", getBooksByAuthor);
 router.post("/", addBook);
 // router.get("/:title",getBookByTitle);
 router.patch("/:id", updateBook);
