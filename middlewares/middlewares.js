@@ -3,8 +3,8 @@ import Joi from "joi";
 export const validateSignup = (req, res, next) => {
   const schema = Joi.object({
     email: Joi.string().email().required().messages({
-      "string.email": "L'email doit être valide.",
-      "any.required": "L'email est obligatoire.",
+      "string.email": "email doit être valide.",
+      "any.required": "email est obligatoire.",
     }),
     pwd: Joi.string().min(6).required().messages({
       "string.min": "Le mot de passe doit contenir au moins 6 caractères.",
@@ -27,7 +27,7 @@ export const validateSignup = (req, res, next) => {
       .json({ errors: error.details.map((err) => err.message) });
   }
 
-  next(); // Passe à la fonction `signup` si la validation réussit
+  next();  
 };
 export const validateEvent = (req, res, next) => {
   const schema = Joi.object({
@@ -56,5 +56,5 @@ export const validateEvent = (req, res, next) => {
       .json({ errors: error.details.map((err) => err.message) });
   }
 
-  next(); // Passe à la fonction de création si la validation réussit
+  next(); 
 };

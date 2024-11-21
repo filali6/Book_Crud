@@ -6,7 +6,7 @@ const eventSchema = new mongoose.Schema({
 });
 eventSchema.pre("save", function (next) {
   if (this.startDate >= this.endDate) {
-    const error = new Error("La date de début doit être avant la date de fin.");
+    const error = new Error("date de debut doit etre avant la date fin");
     return next(error);
   }
   next();
