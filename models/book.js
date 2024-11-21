@@ -13,4 +13,7 @@ const bookSchema = mongoose.Schema(
 bookSchema.statics.findByAuthor = function (authorId) {
   return this.find({ author: authorId });
 };
+bookSchema.statics.hasOtherBooks = function (authorId) {
+  return this.exists({ author: authorId });
+};
 export default mongoose.model("Book", bookSchema);

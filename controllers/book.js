@@ -1,5 +1,5 @@
 import Book from "../models/book.js";
-
+import mongoose from "mongoose";
 export const fetchBooks = async (req, res) => {
   const books= await Book.find();
   res
@@ -58,6 +58,30 @@ catch(e){
   res.status(400).json({ error: e.message, message: "donné invalide" });
 }
 };
+export const addBookAuthor = async (req, res) => {
+  // console.log("body:", req.body);
+  //console.log(req.body.categories);
+
+  try {
+    const author= req.body.author;
+    console.log(author);
+    if (!mongoose.Types.ObjectId.isValid(author)) {
+      return res.status(400).json({ message: "invalide" });
+    }
+    const hasOtherBooks = await Book.hasOtherBooks(author);
+    if (!hasOtherBooks) {
+      return res.status(400).json({
+        message: "L'auteur doit avoir écrit au moins un autre livre avant.",
+      });
+    }
+    const book = new Book(req.body);
+    await book.save();
+    res.status(201).json({ model: book, message: "added successfully" });
+  } catch (e) {
+    res.status(400).json({ error: e.message, message: "données invalides" });
+  }
+};
+
 export const updateBook = async (req, res) => {
 
   console.log("body:", req.body);

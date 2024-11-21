@@ -5,6 +5,7 @@ import {
   getBookById,
   getBooksByAuthor,
   updateBook,
+  addBookAuthor,
 } from "../controllers/book.js";
 import Book from "../models/book.js";
 
@@ -16,6 +17,7 @@ router.get("/", fetchBooks);
 
 router.get("/:id",getBookById);
 router.get("/author/:id", getBooksByAuthor);
+router.post("/author/", addBookAuthor);
 router.post("/", addBook);
 // router.get("/:title",getBookByTitle);
 router.patch("/:id", updateBook);
