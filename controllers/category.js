@@ -1,6 +1,8 @@
 import Category from "../models/category.js";
 
 export const addCategory = async (req, res) => {
+  // #swagger.tags=['Category']
+
   try {
     const category = new Category(req.body);
     console.log(category);

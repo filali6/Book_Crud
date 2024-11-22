@@ -1,6 +1,8 @@
 import Event from "../models/event.js";
 
 export const addEvent = async (req, res) => {
+  // #swagger.tags=['Event']
+
   try {
     const event = new Event(req.body);
     console.log(event);

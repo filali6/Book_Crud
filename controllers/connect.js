@@ -4,6 +4,8 @@ import bcrypt from "bcrypt";
 
 export const JWT_SECRET = "ISAMM_SECRET";
 export const signup = async (req, res, next) => {
+  // #swagger.tags=['signup']
+
   try {
     const hashedPWD = await bcrypt.hash(req.body.pwd, 10);
     const auth = new Connect({
@@ -11,8 +13,8 @@ export const signup = async (req, res, next) => {
       pwd: hashedPWD,
     });
     await auth.save();
-    
-    const userPublic=auth.toPublic();
+
+    const userPublic = auth.toPublic();
     //delete user password
     // const { pwd, ...newauth } = auth.toObject();
 

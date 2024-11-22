@@ -1,9 +1,11 @@
 import Author from "../models/author.js";
 
 export const addAuthor = async (req, res) => {
+  // #swagger.tags=['Author']
+
   try {
-    const author = new Author (req.body);
-      console.log(author);
+    const author = new Author(req.body);
+    console.log(author);
 
     await author.save();
     res.status(201).json({ model: author, message: "added succesfully" });
