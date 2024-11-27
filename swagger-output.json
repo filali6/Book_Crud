@@ -44,15 +44,11 @@
           }
         },
         "requestBody": {
+          "required": true,
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
-                "properties": {
-                  "categories": {
-                    "example": "any"
-                  }
-                }
+                "$ref": "#/components/schemas/bookSchema"
               }
             }
           }
@@ -274,6 +270,27 @@
             "description": "Bad Request"
           }
         }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "bookSchema": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "example": "node"
+          },
+          "author": {
+            "type": "string",
+            "example": "6738dbcef25dfcf4fa2d53fd"
+          }
+        },
+        "required": [
+          "title",
+          "author"
+        ]
       }
     }
   }

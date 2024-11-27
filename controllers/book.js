@@ -51,6 +51,17 @@ export const getBooksByAuthor = async (req, res) => {
 
 export const addBook = async (req, res) => {
   // #swagger.tags=['Books']
+  /*  #swagger.requestBody = {
+            required: true,
+            content: {
+                "application/json": {
+                    schema: {
+                        $ref: "#/components/schemas/bookSchema"
+                    }  
+                }
+            }
+        } 
+    */
 
   // console.log("body:", req.body);
   console.log(req.body.categories);

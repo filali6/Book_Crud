@@ -21,7 +21,12 @@ const doc = {
     },
     // { ... }
   ],
-  components: {}, // by default: empty object
+  components: {
+     schemas: {bookSchema: {
+      $title: "node",
+      $author: "6738dbcef25dfcf4fa2d53fd" 
+    },
+  },} // by default: empty object
 };
 
 const outputFile = "./swagger-output.json";
